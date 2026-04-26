@@ -134,7 +134,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   flex-shrink: 0;
 }
 
-.plausible-box {
+.info-box {
   background: rgba(108,92,231,0.04);
   border: 1px solid rgba(108,92,231,0.2);
   border-radius: 8px;
@@ -144,7 +144,33 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   color: var(--text);
   line-height: 1.7;
 }
-.plausible-box strong { color: var(--heading); }
+.info-box strong { color: var(--heading); }
+
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.role-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.role-card .role-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+.role-card p {
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
 
 .contact-box {
   background: var(--card);
@@ -175,6 +201,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 @media(max-width: 600px) {
   .data-row { grid-template-columns: 1fr; }
   .data-row .key { border-bottom: 1px solid var(--border); }
+  .role-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -200,10 +227,27 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   <div class="section">
     <div class="section-label">What this site does</div>
     <p>NoKeyAuth lets you log in to websites using a physical NFC card and your iPhone — no password required. When you create an account on this site, we store a minimal set of data to make that possible.</p>
+    <div class="info-box">
+      <strong>A note on our dual role.</strong> nokeyauth.com serves two purposes: it is both a product you can use directly, and the platform behind the NoKeyAuth authentication service offered to third-party websites. This site uses its own authentication infrastructure — the same technology we offer to other websites as a service. We believe in using what we build.
+    </div>
   </div>
 
   <div class="section">
-    <div class="section-label">What we collect</div>
+    <div class="section-label">Two roles — two privacy profiles</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">WHEN YOU USE THIS SITE</div>
+        <p>You are a direct user of nokeyauth.com. We are the Data Controller of your personal data — email, name, and public key — as described in this policy.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-title">WHEN A THIRD-PARTY SITE USES OUR SERVICE</div>
+        <p>That website is the Data Controller of its users' data. NoKeyAuth acts as a technical Data Processor on their behalf. We see only anonymous technical data — timestamps and authentication outcomes. We never see the personal data of their users.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What we collect from you</div>
     <div class="data-row">
       <div class="key">Email</div>
       <div class="val">Used to verify your identity and send you a one-time confirmation code at registration.</div>
@@ -223,20 +267,21 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="never-item">The contents of your NFC card.</div>
       <div class="never-item">Individual browsing behavior, personal tracking, or advertising data of any kind.</div>
       <div class="never-item">Payment information.</div>
+      <div class="never-item">Personal data of end users authenticating through third-party websites that use our service.</div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Analytics</div>
-    <div class="plausible-box">
+    <div class="info-box">
       <strong>We use Plausible Analytics</strong> to measure aggregate site traffic. Plausible shows us total visits, country, device type, and referrer source — nothing more.<br><br>
-      Plausible <strong>does not use cookies</strong>, does not track individuals, does not collect IP addresses, and is fully GDPR compliant without requiring a cookie banner. No personal data is collected or shared with Plausible. You can learn more at <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
+      Plausible <strong>does not use cookies</strong>, does not track individuals, does not collect IP addresses, and is fully GDPR compliant without requiring a cookie banner. No personal data is collected or shared with Plausible. Learn more at <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Infrastructure</div>
-    <p>Your account data is stored on Railway (PostgreSQL) servers in the United States. All connections are encrypted via TLS. Email is sent via Resend solely to deliver your verification code.</p>
+    <p>Your account data is stored on Railway (PostgreSQL) servers in the United States. All connections are encrypted via TLS. Email is sent via Resend solely to deliver your verification code. nokeyauth.com uses the NoKeyAuth authentication service — the same service offered to third-party websites.</p>
   </div>
 
   <div class="section">
@@ -255,10 +300,27 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   <div class="section">
     <div class="section-label">Cosa fa questo sito</div>
     <p>NoKeyAuth ti permette di accedere a siti web usando una card NFC fisica e il tuo iPhone — senza password. Quando crei un account su questo sito, conserviamo un insieme minimo di dati per rendere possibile questo servizio.</p>
+    <div class="info-box">
+      <strong>Una nota sul nostro doppio ruolo.</strong> nokeyauth.com ha due funzioni: è sia un prodotto che puoi usare direttamente, sia la piattaforma che alimenta il servizio di autenticazione NoKeyAuth offerto a siti web di terze parti. Questo sito usa la propria infrastruttura di autenticazione — la stessa tecnologia che offriamo ad altri siti come servizio. Crediamo in quello che costruiamo e lo usiamo in prima persona.
+    </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Cosa raccogliamo</div>
+    <div class="section-label">Due ruoli — due profili di privacy</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">QUANDO USI QUESTO SITO</div>
+        <p>Sei un utente diretto di nokeyauth.com. Siamo i Titolari del trattamento dei tuoi dati personali — email, nome e chiave pubblica — come descritto in questa informativa.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-title">QUANDO UN SITO TERZO USA IL NOSTRO SERVIZIO</div>
+        <p>Quel sito è il Titolare del trattamento dei dati dei suoi utenti. NoKeyAuth agisce come Responsabile del trattamento tecnico per loro conto. Vediamo solo dati tecnici anonimi — timestamp ed esiti delle autenticazioni. Non vediamo mai i dati personali dei loro utenti.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cosa raccogliamo da te</div>
     <div class="data-row">
       <div class="key">Email</div>
       <div class="val">Usata per verificare la tua identità e inviarti un codice di conferma una tantum alla registrazione.</div>
@@ -278,12 +340,13 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="never-item">Il contenuto della tua card NFC.</div>
       <div class="never-item">Comportamento di navigazione individuale, tracciamento personale o dati pubblicitari di alcun tipo.</div>
       <div class="never-item">Dati di pagamento.</div>
+      <div class="never-item">Dati personali degli utenti finali che si autenticano tramite siti terzi che usano il nostro servizio.</div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Analytics</div>
-    <div class="plausible-box">
+    <div class="info-box">
       <strong>Utilizziamo Plausible Analytics</strong> per misurare il traffico aggregato del sito. Plausible ci mostra visite totali, paese, tipo di dispositivo e sorgente di traffico — niente di più.<br><br>
       Plausible <strong>non usa cookie</strong>, non traccia individui, non raccoglie indirizzi IP ed è pienamente conforme al GDPR senza richiedere un banner cookie. Nessun dato personale viene raccolto o condiviso con Plausible. Maggiori informazioni su <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
     </div>
@@ -291,7 +354,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 
   <div class="section">
     <div class="section-label">Infrastruttura</div>
-    <p>I dati del tuo account sono conservati su server Railway (PostgreSQL) negli Stati Uniti. Tutte le connessioni sono cifrate tramite TLS. Le email vengono inviate tramite Resend esclusivamente per consegnare il codice di verifica.</p>
+    <p>I dati del tuo account sono conservati su server Railway (PostgreSQL) negli Stati Uniti. Tutte le connessioni sono cifrate tramite TLS. Le email vengono inviate tramite Resend esclusivamente per consegnare il codice di verifica. nokeyauth.com utilizza il servizio di autenticazione NoKeyAuth — la stessa tecnologia offerta ai siti web di terze parti.</p>
   </div>
 
   <div class="section">
@@ -310,10 +373,27 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   <div class="section">
     <div class="section-label">Qué hace este sitio</div>
     <p>NoKeyAuth te permite iniciar sesión en sitios web usando una tarjeta NFC física y tu iPhone — sin contraseña. Cuando creas una cuenta en este sitio, almacenamos un conjunto mínimo de datos para hacer posible este servicio.</p>
+    <div class="info-box">
+      <strong>Una nota sobre nuestro doble rol.</strong> nokeyauth.com tiene dos funciones: es tanto un producto que puedes usar directamente, como la plataforma que impulsa el servicio de autenticación NoKeyAuth ofrecido a sitios web de terceros. Este sitio utiliza su propia infraestructura de autenticación — la misma tecnología que ofrecemos a otros sitios como servicio. Creemos en lo que construimos y lo usamos nosotros mismos.
+    </div>
   </div>
 
   <div class="section">
-    <div class="section-label">Qué recopilamos</div>
+    <div class="section-label">Dos roles — dos perfiles de privacidad</div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">CUANDO USAS ESTE SITIO</div>
+        <p>Eres un usuario directo de nokeyauth.com. Somos el Responsable del tratamiento de tus datos personales — email, nombre y clave pública — como se describe en esta política.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-title">CUANDO UN SITIO TERCERO USA NUESTRO SERVICIO</div>
+        <p>Ese sitio es el Responsable del tratamiento de los datos de sus usuarios. NoKeyAuth actúa como Encargado del tratamiento técnico en su nombre. Solo vemos datos técnicos anónimos — marcas de tiempo y resultados de autenticaciones. Nunca vemos los datos personales de sus usuarios.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Qué recopilamos de ti</div>
     <div class="data-row">
       <div class="key">Email</div>
       <div class="val">Usada para verificar tu identidad y enviarte un código de confirmación único en el registro.</div>
@@ -333,12 +413,13 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="never-item">El contenido de tu tarjeta NFC.</div>
       <div class="never-item">Comportamiento de navegación individual, seguimiento personal o datos publicitarios de ningún tipo.</div>
       <div class="never-item">Información de pago.</div>
+      <div class="never-item">Datos personales de usuarios finales que se autentican a través de sitios terceros que usan nuestro servicio.</div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Analítica</div>
-    <div class="plausible-box">
+    <div class="info-box">
       <strong>Usamos Plausible Analytics</strong> para medir el tráfico agregado del sitio. Plausible nos muestra visitas totales, país, tipo de dispositivo y fuente de tráfico — nada más.<br><br>
       Plausible <strong>no usa cookies</strong>, no rastrea individuos, no recopila direcciones IP y cumple plenamente con el GDPR sin necesitar un banner de cookies. Ningún dato personal es recopilado ni compartido con Plausible. Más información en <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
     </div>
@@ -346,7 +427,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 
   <div class="section">
     <div class="section-label">Infraestructura</div>
-    <p>Los datos de tu cuenta se almacenan en servidores Railway (PostgreSQL) en Estados Unidos. Todas las conexiones están cifradas mediante TLS. El email se envía a través de Resend exclusivamente para entregar tu código de verificación.</p>
+    <p>Los datos de tu cuenta se almacenan en servidores Railway (PostgreSQL) en Estados Unidos. Todas las conexiones están cifradas mediante TLS. El email se envía a través de Resend exclusivamente para entregar tu código de verificación. nokeyauth.com utiliza el servicio de autenticación NoKeyAuth — la misma tecnología ofrecida a sitios web de terceros.</p>
   </div>
 
   <div class="section">
