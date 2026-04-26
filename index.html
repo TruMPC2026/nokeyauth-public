@@ -21,39 +21,157 @@
   --mono: 'IBM Plex Mono', monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; min-height: 100vh; }
 
-.header { padding: 48px 24px 32px; text-align: center; border-bottom: 1px solid var(--border); }
-.header h1 { font-family: var(--mono); font-size: 22px; color: var(--heading); letter-spacing: 2px; }
-.header .updated { font-family: var(--mono); font-size: 11px; color: var(--text2); margin-top: 8px; letter-spacing: 1px; }
+.header {
+  padding: 56px 24px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.header .logo { font-family: var(--mono); font-size: 11px; letter-spacing: 4px; color: var(--accent2); margin-bottom: 16px; }
+.header h1 { font-family: var(--mono); font-size: 20px; color: var(--heading); letter-spacing: 1px; margin-bottom: 8px; }
+.header .updated { font-family: var(--mono); font-size: 11px; color: var(--text2); letter-spacing: 1px; }
 
-.lang-switcher { display: flex; justify-content: center; gap: 8px; padding: 20px; }
-.lang-btn { font-family: var(--mono); font-size: 12px; padding: 6px 16px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text2); cursor: pointer; transition: all 0.2s; }
+.lang-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.lang-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
 .lang-btn:hover { color: var(--heading); border-color: var(--accent2); }
 .lang-btn.active { color: var(--accent2); border-color: var(--accent); background: rgba(108,92,231,0.08); }
 
-.content { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+.content { max-width: 640px; margin: 0 auto; padding: 48px 24px 80px; }
 .lang-content { display: none; }
 .lang-content.active { display: block; }
 
-h2 { font-size: 13px; font-family: var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--accent2); margin: 40px 0 12px; }
-p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.8; }
-ul { margin: 0 0 14px 20px; }
-ul li { color: var(--text); font-size: 14px; line-height: 1.8; margin-bottom: 4px; }
+.section { margin-bottom: 48px; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
-.badge-section { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,184,148,0.08); border: 1px solid rgba(0,184,148,0.2); border-radius: 6px; padding: 8px 14px; margin: 8px 0 16px; }
-.badge-section span { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 1px; }
+p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85; }
 
-.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 32px 0; }
+.data-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1px;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.data-row .key {
+  background: var(--card);
+  padding: 12px 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent2);
+  border-bottom: 1px solid var(--border);
+}
+.data-row .val {
+  background: var(--bg2);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.data-row .key:last-of-type,
+.data-row .val:last-of-type { border-bottom: none; }
 
-.footer { text-align: center; font-size: 11px; color: var(--text2); font-family: var(--mono); padding: 24px; border-top: 1px solid var(--border); margin-top: 48px; }
+.never-box {
+  background: rgba(0,184,148,0.04);
+  border: 1px solid rgba(0,184,148,0.15);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+.never-box .never-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.never-box .never-item:last-child { margin-bottom: 0; }
+.never-box .never-item::before {
+  content: '✗';
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+.contact-box a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent2);
+  text-decoration: none;
+}
+.contact-box a:hover { color: var(--heading); }
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text2);
+  font-family: var(--mono);
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+  .data-row { grid-template-columns: 1fr; }
+  .data-row .key { border-bottom: 1px solid var(--border); }
+}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>NOKEYAUTH — PRIVACY POLICY</h1>
-  <div class="updated">LAST UPDATED: APRIL 26, 2026</div>
+  <div class="logo">NOKEYAUTH</div>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: April 26, 2026</div>
 </div>
 
 <div class="lang-switcher">
@@ -64,216 +182,144 @@ ul li { color: var(--text); font-size: 14px; line-height: 1.8; margin-bottom: 4p
 
 <div class="content">
 
-<!-- ═══════════════════════════════════════ ENGLISH ═══════════════════════════════════════ -->
+<!-- ══════════════ ENGLISH ══════════════ -->
 <div class="lang-content active" id="lang-en">
 
-  <h2>Overview</h2>
-  <p>NoKeyAuth is designed with privacy at its core. This policy explains clearly what data we collect, where, and why — depending on how you use the product.</p>
-  <p>NoKeyAuth has two distinct modes of operation with different privacy profiles.</p>
+  <div class="section">
+    <div class="section-label">What this site does</div>
+    <p>NoKeyAuth lets you log in to websites using a physical NFC card and your iPhone — no password required. When you create an account on this site, we store a minimal set of data to make that possible.</p>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">What we collect</div>
+    <div class="data-row">
+      <div class="key">Email</div>
+      <div class="val">Used to verify your identity and send you a one-time confirmation code at registration.</div>
+      <div class="key">Name</div>
+      <div class="val">First and last name, entered by you during profile setup.</div>
+      <div class="key">Public key (A0)</div>
+      <div class="val">A mathematical public point derived from your NFC card. It is public by design — it cannot be used to access your account or reconstruct your secret.</div>
+      <div class="key">Session data</div>
+      <div class="val">A short-lived token that keeps you logged in. It expires automatically and is never shared.</div>
+    </div>
+  </div>
 
-  <h2>Mode 1 — OTP Authenticator (App only)</h2>
-  <div class="badge-section"><span>● ZERO SERVER DATA</span></div>
-  <p>When you use NoKeyAuth as a two-factor authentication app (generating OTP codes), all cryptographic operations are performed locally on your device. Your authentication secrets are split across your physical devices (iPhone and NFC cards or USB-C key).</p>
-  <ul>
-    <li>No secrets or private keys are ever transmitted to our servers</li>
-    <li>No personal data is collected or stored by NoKeyAuth in this mode</li>
-    <li>No analytics, advertising, or tracking of any kind</li>
-  </ul>
+  <div class="section">
+    <div class="section-label">What we never collect</div>
+    <div class="never-box">
+      <div class="never-item">Your private key or secret — it never exists as a complete value anywhere, not on your phone, not on our servers.</div>
+      <div class="never-item">The contents of your NFC card.</div>
+      <div class="never-item">Browsing behavior, analytics, or tracking of any kind.</div>
+      <div class="never-item">Payment information.</div>
+    </div>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">Infrastructure</div>
+    <p>Your data is stored on Railway (PostgreSQL) servers in the United States. All connections are encrypted via TLS. Email is sent via Resend solely to deliver your verification code.</p>
+  </div>
 
-  <h2>Mode 2 — WebAuth (Login to websites)</h2>
-  <div class="badge-section"><span>● MINIMAL SERVER DATA</span></div>
-  <p>When you use NoKeyAuth to authenticate to a website (WebAuth mode), a minimal set of data is stored on our servers to enable the service.</p>
-
-  <p><strong style="color:var(--heading)">What we collect:</strong></p>
-  <ul>
-    <li><strong>A0 (public key)</strong> — a mathematical public point on the P-256 curve, derived from your NFC cards. This is cryptographically public by design and cannot be used to derive your private secret.</li>
-    <li><strong>Email address</strong> — provided by you during profile setup, used only to verify your identity and send transactional messages.</li>
-    <li><strong>First name and last name</strong> — provided by you during profile setup.</li>
-    <li><strong>Session tokens</strong> — short-lived tokens used to maintain authenticated sessions, stored temporarily.</li>
-    <li><strong>Login timestamps</strong> — date and time of successful authentications, for security audit purposes.</li>
-  </ul>
-
-  <p><strong style="color:var(--heading)">What we never collect:</strong></p>
-  <ul>
-    <li>Your private key or secret — it never exists as a complete value anywhere</li>
-    <li>Your NFC card contents</li>
-    <li>Behavioral data, analytics, or tracking</li>
-    <li>Payment information</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Data Storage and Security</h2>
-  <p>Data is stored on Railway (PostgreSQL) infrastructure located in the United States (us-east region). Session data is stored in Redis and automatically expires. We apply industry-standard security practices including encrypted connections (TLS) and access controls.</p>
-
-  <div class="divider"></div>
-
-  <h2>Data Retention</h2>
-  <p>Your profile data (email, name, public key) is retained for as long as your account exists. You may request deletion at any time by contacting us at <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>. Session tokens expire automatically within 24 hours.</p>
-
-  <div class="divider"></div>
-
-  <h2>Your Rights (GDPR)</h2>
-  <p>If you are located in the European Union, you have the right to access, correct, export, or delete your personal data. To exercise these rights, contact us at <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>.</p>
-
-  <div class="divider"></div>
-
-  <h2>Third-Party Services</h2>
-  <ul>
-    <li><strong>Resend</strong> — used to send transactional emails (email verification). Your email address is transmitted to Resend solely for this purpose.</li>
-    <li><strong>Apple system services</strong> — crash reports and diagnostics may operate independently per Apple's privacy policy.</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Contact</h2>
-  <p>For any privacy-related questions: <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a></p>
+  <div class="section">
+    <div class="section-label">Your rights</div>
+    <p>You can request access to, correction of, or deletion of your data at any time. If you are in the European Union, these rights are guaranteed under GDPR.</p>
+    <div class="contact-box">
+      <a href="mailto:privacy@nokeyauth.com">privacy@nokeyauth.com</a>
+    </div>
+  </div>
 
 </div>
 
-<!-- ═══════════════════════════════════════ ITALIANO ═══════════════════════════════════════ -->
+<!-- ══════════════ ITALIANO ══════════════ -->
 <div class="lang-content" id="lang-it">
 
-  <h2>Panoramica</h2>
-  <p>NoKeyAuth è progettata con la privacy al centro. Questa informativa spiega chiaramente quali dati raccogliamo, dove e perché — in base a come utilizzi il prodotto.</p>
-  <p>NoKeyAuth ha due modalità operative distinte con profili di privacy diversi.</p>
+  <div class="section">
+    <div class="section-label">Cosa fa questo sito</div>
+    <p>NoKeyAuth ti permette di accedere a siti web usando una card NFC fisica e il tuo iPhone — senza password. Quando crei un account su questo sito, conserviamo un insieme minimo di dati per rendere possibile questo servizio.</p>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">Cosa raccogliamo</div>
+    <div class="data-row">
+      <div class="key">Email</div>
+      <div class="val">Usata per verificare la tua identità e inviarti un codice di conferma una tantum alla registrazione.</div>
+      <div class="key">Nome</div>
+      <div class="val">Nome e cognome, inseriti da te durante la configurazione del profilo.</div>
+      <div class="key">Chiave pubblica (A0)</div>
+      <div class="val">Un punto matematico pubblico derivato dalla tua card NFC. È pubblico per design — non può essere usato per accedere al tuo account o ricostruire il tuo segreto.</div>
+      <div class="key">Dati di sessione</div>
+      <div class="val">Un token di breve durata che mantiene la tua sessione attiva. Scade automaticamente e non viene mai condiviso.</div>
+    </div>
+  </div>
 
-  <h2>Modalità 1 — Autenticatore OTP (Solo app)</h2>
-  <div class="badge-section"><span>● ZERO DATI SUL SERVER</span></div>
-  <p>Quando usi NoKeyAuth come app di autenticazione a due fattori (generazione codici OTP), tutte le operazioni crittografiche vengono eseguite localmente sul tuo dispositivo. I tuoi segreti di autenticazione sono distribuiti tra i tuoi dispositivi fisici (iPhone e carte NFC o chiavetta USB-C).</p>
-  <ul>
-    <li>Nessun segreto o chiave privata viene mai trasmesso ai nostri server</li>
-    <li>Nessun dato personale viene raccolto o conservato da NoKeyAuth in questa modalità</li>
-    <li>Nessuna analisi, pubblicità o tracciamento di alcun tipo</li>
-  </ul>
+  <div class="section">
+    <div class="section-label">Cosa non raccogliamo mai</div>
+    <div class="never-box">
+      <div class="never-item">La tua chiave privata o segreto — non esiste mai come valore completo in nessun posto, né sul tuo telefono né sui nostri server.</div>
+      <div class="never-item">Il contenuto della tua card NFC.</div>
+      <div class="never-item">Comportamento di navigazione, analytics o tracciamento di alcun tipo.</div>
+      <div class="never-item">Dati di pagamento.</div>
+    </div>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">Infrastruttura</div>
+    <p>I tuoi dati sono conservati su server Railway (PostgreSQL) negli Stati Uniti. Tutte le connessioni sono cifrate tramite TLS. Le email vengono inviate tramite Resend esclusivamente per consegnare il codice di verifica.</p>
+  </div>
 
-  <h2>Modalità 2 — WebAuth (Accesso a siti web)</h2>
-  <div class="badge-section"><span>● DATI MINIMI SUL SERVER</span></div>
-  <p>Quando usi NoKeyAuth per autenticarti su un sito web (modalità WebAuth), un insieme minimo di dati viene conservato sui nostri server per erogare il servizio.</p>
-
-  <p><strong style="color:var(--heading)">Cosa raccogliamo:</strong></p>
-  <ul>
-    <li><strong>A0 (chiave pubblica)</strong> — un punto matematico pubblico sulla curva P-256, derivato dalle tue carte NFC. È pubblico per design e non può essere usato per ricavare il tuo segreto privato.</li>
-    <li><strong>Indirizzo email</strong> — fornito da te durante la configurazione del profilo, utilizzato solo per verificare la tua identità e inviare messaggi transazionali.</li>
-    <li><strong>Nome e cognome</strong> — forniti da te durante la configurazione del profilo.</li>
-    <li><strong>Token di sessione</strong> — token di breve durata usati per mantenere le sessioni autenticate, conservati temporaneamente.</li>
-    <li><strong>Timestamp di accesso</strong> — data e ora delle autenticazioni riuscite, per scopi di audit di sicurezza.</li>
-  </ul>
-
-  <p><strong style="color:var(--heading)">Cosa non raccogliamo mai:</strong></p>
-  <ul>
-    <li>La tua chiave privata o segreto — non esiste mai come valore completo in nessun posto</li>
-    <li>Il contenuto delle tue carte NFC</li>
-    <li>Dati comportamentali, analytics o tracciamento</li>
-    <li>Dati di pagamento</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Conservazione e Sicurezza dei Dati</h2>
-  <p>I dati sono conservati su infrastruttura Railway (PostgreSQL) situata negli Stati Uniti (regione us-east). I dati di sessione sono conservati in Redis e scadono automaticamente. Applichiamo pratiche di sicurezza standard del settore incluse connessioni crittografate (TLS) e controlli di accesso.</p>
-
-  <div class="divider"></div>
-
-  <h2>Conservazione dei Dati</h2>
-  <p>I dati del tuo profilo (email, nome, chiave pubblica) sono conservati finché il tuo account esiste. Puoi richiedere la cancellazione in qualsiasi momento contattandoci all'indirizzo <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>. I token di sessione scadono automaticamente entro 24 ore.</p>
-
-  <div class="divider"></div>
-
-  <h2>I Tuoi Diritti (GDPR)</h2>
-  <p>Se ti trovi nell'Unione Europea, hai il diritto di accedere, correggere, esportare o cancellare i tuoi dati personali. Per esercitare questi diritti, contattaci all'indirizzo <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>.</p>
-
-  <div class="divider"></div>
-
-  <h2>Servizi di Terze Parti</h2>
-  <ul>
-    <li><strong>Resend</strong> — utilizzato per inviare email transazionali (verifica email). Il tuo indirizzo email viene trasmesso a Resend esclusivamente per questo scopo.</li>
-    <li><strong>Servizi di sistema Apple</strong> — report di crash e diagnostica possono operare indipendentemente secondo la privacy policy di Apple.</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Contatto</h2>
-  <p>Per qualsiasi domanda sulla privacy: <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a></p>
+  <div class="section">
+    <div class="section-label">I tuoi diritti</div>
+    <p>Puoi richiedere accesso, correzione o cancellazione dei tuoi dati in qualsiasi momento. Se ti trovi nell'Unione Europea, questi diritti sono garantiti dal GDPR.</p>
+    <div class="contact-box">
+      <a href="mailto:privacy@nokeyauth.com">privacy@nokeyauth.com</a>
+    </div>
+  </div>
 
 </div>
 
-<!-- ═══════════════════════════════════════ ESPAÑOL ═══════════════════════════════════════ -->
+<!-- ══════════════ ESPAÑOL ══════════════ -->
 <div class="lang-content" id="lang-es">
 
-  <h2>Visión General</h2>
-  <p>NoKeyAuth está diseñada con la privacidad en su núcleo. Esta política explica claramente qué datos recopilamos, dónde y por qué, según cómo uses el producto.</p>
-  <p>NoKeyAuth tiene dos modos de operación distintos con diferentes perfiles de privacidad.</p>
+  <div class="section">
+    <div class="section-label">Qué hace este sitio</div>
+    <p>NoKeyAuth te permite iniciar sesión en sitios web usando una tarjeta NFC física y tu iPhone — sin contraseña. Cuando creas una cuenta en este sitio, almacenamos un conjunto mínimo de datos para hacer posible este servicio.</p>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">Qué recopilamos</div>
+    <div class="data-row">
+      <div class="key">Email</div>
+      <div class="val">Usada para verificar tu identidad y enviarte un código de confirmación único en el registro.</div>
+      <div class="key">Nombre</div>
+      <div class="val">Nombre y apellido, introducidos por ti durante la configuración del perfil.</div>
+      <div class="key">Clave pública (A0)</div>
+      <div class="val">Un punto matemático público derivado de tu tarjeta NFC. Es público por diseño — no puede usarse para acceder a tu cuenta ni reconstruir tu secreto.</div>
+      <div class="key">Datos de sesión</div>
+      <div class="val">Un token de corta duración que mantiene tu sesión activa. Expira automáticamente y nunca se comparte.</div>
+    </div>
+  </div>
 
-  <h2>Modo 1 — Autenticador OTP (Solo app)</h2>
-  <div class="badge-section"><span>● CERO DATOS EN SERVIDOR</span></div>
-  <p>Cuando usas NoKeyAuth como aplicación de autenticación de dos factores (generación de códigos OTP), todas las operaciones criptográficas se realizan localmente en tu dispositivo. Tus secretos de autenticación están distribuidos entre tus dispositivos físicos (iPhone y tarjetas NFC o llave USB-C).</p>
-  <ul>
-    <li>Ningún secreto ni clave privada se transmite jamás a nuestros servidores</li>
-    <li>NoKeyAuth no recopila ni almacena datos personales en este modo</li>
-    <li>Sin análisis, publicidad ni seguimiento de ningún tipo</li>
-  </ul>
+  <div class="section">
+    <div class="section-label">Qué nunca recopilamos</div>
+    <div class="never-box">
+      <div class="never-item">Tu clave privada o secreto — nunca existe como valor completo en ningún lugar, ni en tu teléfono ni en nuestros servidores.</div>
+      <div class="never-item">El contenido de tu tarjeta NFC.</div>
+      <div class="never-item">Comportamiento de navegación, analíticas o seguimiento de ningún tipo.</div>
+      <div class="never-item">Información de pago.</div>
+    </div>
+  </div>
 
-  <div class="divider"></div>
+  <div class="section">
+    <div class="section-label">Infraestructura</div>
+    <p>Tus datos se almacenan en servidores Railway (PostgreSQL) en Estados Unidos. Todas las conexiones están cifradas mediante TLS. El email se envía a través de Resend exclusivamente para entregar tu código de verificación.</p>
+  </div>
 
-  <h2>Modo 2 — WebAuth (Acceso a sitios web)</h2>
-  <div class="badge-section"><span>● DATOS MÍNIMOS EN SERVIDOR</span></div>
-  <p>Cuando usas NoKeyAuth para autenticarte en un sitio web (modo WebAuth), un conjunto mínimo de datos se almacena en nuestros servidores para prestar el servicio.</p>
-
-  <p><strong style="color:var(--heading)">Qué recopilamos:</strong></p>
-  <ul>
-    <li><strong>A0 (clave pública)</strong> — un punto matemático público en la curva P-256, derivado de tus tarjetas NFC. Es públicamente por diseño y no puede usarse para derivar tu secreto privado.</li>
-    <li><strong>Dirección de email</strong> — proporcionada por ti durante la configuración del perfil, usada solo para verificar tu identidad y enviar mensajes transaccionales.</li>
-    <li><strong>Nombre y apellido</strong> — proporcionados por ti durante la configuración del perfil.</li>
-    <li><strong>Tokens de sesión</strong> — tokens de corta duración usados para mantener sesiones autenticadas, almacenados temporalmente.</li>
-    <li><strong>Marcas de tiempo de acceso</strong> — fecha y hora de autenticaciones exitosas, con fines de auditoría de seguridad.</li>
-  </ul>
-
-  <p><strong style="color:var(--heading)">Qué nunca recopilamos:</strong></p>
-  <ul>
-    <li>Tu clave privada o secreto — nunca existe como valor completo en ningún lugar</li>
-    <li>El contenido de tus tarjetas NFC</li>
-    <li>Datos de comportamiento, analíticas o seguimiento</li>
-    <li>Información de pago</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Almacenamiento y Seguridad de Datos</h2>
-  <p>Los datos se almacenan en infraestructura Railway (PostgreSQL) ubicada en Estados Unidos (región us-east). Los datos de sesión se almacenan en Redis y expiran automáticamente. Aplicamos prácticas de seguridad estándar del sector incluyendo conexiones cifradas (TLS) y controles de acceso.</p>
-
-  <div class="divider"></div>
-
-  <h2>Retención de Datos</h2>
-  <p>Los datos de tu perfil (email, nombre, clave pública) se conservan mientras exista tu cuenta. Puedes solicitar la eliminación en cualquier momento contactándonos en <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>. Los tokens de sesión expiran automáticamente en 24 horas.</p>
-
-  <div class="divider"></div>
-
-  <h2>Tus Derechos (GDPR)</h2>
-  <p>Si te encuentras en la Unión Europea, tienes derecho a acceder, corregir, exportar o eliminar tus datos personales. Para ejercer estos derechos, contáctanos en <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a>.</p>
-
-  <div class="divider"></div>
-
-  <h2>Servicios de Terceros</h2>
-  <ul>
-    <li><strong>Resend</strong> — usado para enviar emails transaccionales (verificación de email). Tu dirección de email se transmite a Resend únicamente para este propósito.</li>
-    <li><strong>Servicios del sistema Apple</strong> — los informes de fallos y diagnósticos pueden operar independientemente según la política de privacidad de Apple.</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <h2>Contacto</h2>
-  <p>Para cualquier pregunta sobre privacidad: <a href="mailto:privacy@nokeyauth.com" style="color:var(--accent2)">privacy@nokeyauth.com</a></p>
+  <div class="section">
+    <div class="section-label">Tus derechos</div>
+    <p>Puedes solicitar acceso, corrección o eliminación de tus datos en cualquier momento. Si te encuentras en la Unión Europea, estos derechos están garantizados por el GDPR.</p>
+    <div class="contact-box">
+      <a href="mailto:privacy@nokeyauth.com">privacy@nokeyauth.com</a>
+    </div>
+  </div>
 
 </div>
 
@@ -293,7 +339,6 @@ function setLang(lang) {
   document.documentElement.lang = lang;
 }
 
-// Auto-detect browser language
 const browserLang = navigator.language.slice(0, 2);
 if (['it', 'es'].includes(browserLang)) setLang(browserLang);
 </script>
