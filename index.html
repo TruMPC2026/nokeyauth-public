@@ -134,6 +134,18 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
   flex-shrink: 0;
 }
 
+.plausible-box {
+  background: rgba(108,92,231,0.04);
+  border: 1px solid rgba(108,92,231,0.2);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.7;
+}
+.plausible-box strong { color: var(--heading); }
+
 .contact-box {
   background: var(--card);
   border: 1px solid var(--border);
@@ -209,14 +221,22 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">Your private key or secret — it never exists as a complete value anywhere, not on your phone, not on our servers.</div>
       <div class="never-item">The contents of your NFC card.</div>
-      <div class="never-item">Browsing behavior, analytics, or tracking of any kind.</div>
+      <div class="never-item">Individual browsing behavior, personal tracking, or advertising data of any kind.</div>
       <div class="never-item">Payment information.</div>
     </div>
   </div>
 
   <div class="section">
+    <div class="section-label">Analytics</div>
+    <div class="plausible-box">
+      <strong>We use Plausible Analytics</strong> to measure aggregate site traffic. Plausible shows us total visits, country, device type, and referrer source — nothing more.<br><br>
+      Plausible <strong>does not use cookies</strong>, does not track individuals, does not collect IP addresses, and is fully GDPR compliant without requiring a cookie banner. No personal data is collected or shared with Plausible. You can learn more at <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-label">Infrastructure</div>
-    <p>Your data is stored on Railway (PostgreSQL) servers in the United States. All connections are encrypted via TLS. Email is sent via Resend solely to deliver your verification code.</p>
+    <p>Your account data is stored on Railway (PostgreSQL) servers in the United States. All connections are encrypted via TLS. Email is sent via Resend solely to deliver your verification code.</p>
   </div>
 
   <div class="section">
@@ -256,14 +276,22 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">La tua chiave privata o segreto — non esiste mai come valore completo in nessun posto, né sul tuo telefono né sui nostri server.</div>
       <div class="never-item">Il contenuto della tua card NFC.</div>
-      <div class="never-item">Comportamento di navigazione, analytics o tracciamento di alcun tipo.</div>
+      <div class="never-item">Comportamento di navigazione individuale, tracciamento personale o dati pubblicitari di alcun tipo.</div>
       <div class="never-item">Dati di pagamento.</div>
     </div>
   </div>
 
   <div class="section">
+    <div class="section-label">Analytics</div>
+    <div class="plausible-box">
+      <strong>Utilizziamo Plausible Analytics</strong> per misurare il traffico aggregato del sito. Plausible ci mostra visite totali, paese, tipo di dispositivo e sorgente di traffico — niente di più.<br><br>
+      Plausible <strong>non usa cookie</strong>, non traccia individui, non raccoglie indirizzi IP ed è pienamente conforme al GDPR senza richiedere un banner cookie. Nessun dato personale viene raccolto o condiviso con Plausible. Maggiori informazioni su <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-label">Infrastruttura</div>
-    <p>I tuoi dati sono conservati su server Railway (PostgreSQL) negli Stati Uniti. Tutte le connessioni sono cifrate tramite TLS. Le email vengono inviate tramite Resend esclusivamente per consegnare il codice di verifica.</p>
+    <p>I dati del tuo account sono conservati su server Railway (PostgreSQL) negli Stati Uniti. Tutte le connessioni sono cifrate tramite TLS. Le email vengono inviate tramite Resend esclusivamente per consegnare il codice di verifica.</p>
   </div>
 
   <div class="section">
@@ -303,14 +331,22 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">Tu clave privada o secreto — nunca existe como valor completo en ningún lugar, ni en tu teléfono ni en nuestros servidores.</div>
       <div class="never-item">El contenido de tu tarjeta NFC.</div>
-      <div class="never-item">Comportamiento de navegación, analíticas o seguimiento de ningún tipo.</div>
+      <div class="never-item">Comportamiento de navegación individual, seguimiento personal o datos publicitarios de ningún tipo.</div>
       <div class="never-item">Información de pago.</div>
     </div>
   </div>
 
   <div class="section">
+    <div class="section-label">Analítica</div>
+    <div class="plausible-box">
+      <strong>Usamos Plausible Analytics</strong> para medir el tráfico agregado del sitio. Plausible nos muestra visitas totales, país, tipo de dispositivo y fuente de tráfico — nada más.<br><br>
+      Plausible <strong>no usa cookies</strong>, no rastrea individuos, no recopila direcciones IP y cumple plenamente con el GDPR sin necesitar un banner de cookies. Ningún dato personal es recopilado ni compartido con Plausible. Más información en <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" style="color:var(--accent2)">plausible.io</a>.
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-label">Infraestructura</div>
-    <p>Tus datos se almacenan en servidores Railway (PostgreSQL) en Estados Unidos. Todas las conexiones están cifradas mediante TLS. El email se envía a través de Resend exclusivamente para entregar tu código de verificación.</p>
+    <p>Los datos de tu cuenta se almacenan en servidores Railway (PostgreSQL) en Estados Unidos. Todas las conexiones están cifradas mediante TLS. El email se envía a través de Resend exclusivamente para entregar tu código de verificación.</p>
   </div>
 
   <div class="section">
