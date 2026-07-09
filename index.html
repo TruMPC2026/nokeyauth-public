@@ -19,8 +19,8 @@
   --text: #BFC5D4;
   --text2: #727A90;
   --heading: #E8ECF4;
-  --accent: #6C5CE7;
-  --accent2: #A29BFE;
+  --accent: #1E74C8;
+  --accent2: #5BA8F0;
   --green: #00B894;
   --font: 'IBM Plex Sans', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
@@ -59,7 +59,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   letter-spacing: 1px;
 }
 .lang-btn:hover { color: var(--heading); border-color: var(--accent2); }
-.lang-btn.active { color: var(--accent2); border-color: var(--accent); background: rgba(108,92,231,0.08); }
+.lang-btn.active { color: var(--accent2); border-color: var(--accent); background: rgba(30,116,200,0.10); }
 
 .content { max-width: 640px; margin: 0 auto; padding: 48px 24px 80px; }
 .lang-content { display: none; }
@@ -140,8 +140,8 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 }
 
 .info-box {
-  background: rgba(108,92,231,0.04);
-  border: 1px solid rgba(108,92,231,0.2);
+  background: rgba(30,116,200,0.05);
+  border: 1px solid rgba(30,116,200,0.25);
   border-radius: 8px;
   padding: 16px 20px;
   margin: 16px 0;
@@ -217,7 +217,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 .theme-toggle:hover{color:var(--heading);border-color:var(--accent2)}
 .theme-toggle svg{display:block}
 /* --- MODALITA' CHIARA --- */
-:root[data-theme="light"]{--bg:#f5f7fb;--bg2:#eef1f7;--card:#ffffff;--border:#e2e7f0;--text:#3a4557;--text2:#6d7688;--heading:#0c1b2e;--accent2:#5a4bd0}
+:root[data-theme="light"]{--bg:#f5f7fb;--bg2:#eef1f7;--card:#ffffff;--border:#e2e7f0;--text:#3a4557;--text2:#6d7688;--heading:#0c1b2e;--accent2:#0858A8}
 </style>
 </head>
 <body>
@@ -486,5 +486,6 @@ if (['it', 'es'].includes(browserLang)) setLang(browserLang);
   document.addEventListener("DOMContentLoaded",paint);
 })();
 </script>
+<script>(function(){var _s=window.setLang;if(typeof _s==="function"){window.setLang=function(l){_s(l);try{localStorage.setItem("nka_lang",l);}catch(e){}};}document.addEventListener("DOMContentLoaded",function(){try{var l=localStorage.getItem("nka_lang");if(l&&["en","it","es"].indexOf(l)>=0)window.setLang(l);}catch(e){}});})();</script>
 </body>
 </html>
