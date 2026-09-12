@@ -225,7 +225,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 <div class="header">
   <div class="header-logo" role="img" aria-label="NoKeyAuth"></div>
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: April 26, 2026</div>
+  <div class="updated">Last updated: September 12, 2026</div>
 </div>
 
 <div class="lang-switcher">
@@ -257,7 +257,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       </div>
       <div class="role-card">
         <div class="role-title">WHEN A THIRD-PARTY SITE USES OUR SERVICE</div>
-        <p>That website is the Data Controller of its users' data. NoKeyAuth acts as a technical Data Processor on their behalf. We see only anonymous technical data — timestamps and authentication outcomes. We never see the personal data of their users.</p>
+        <p>That website is the Data Controller of its users' data. NoKeyAuth acts as a technical Data Processor on their behalf. We receive the public key, the session identifier and the time of the authentication. We never receive the name, the email address or any other data that website holds about its users. Note that a public key is not anonymous data: it is a stable identifier, and for people who also have an account on nokeyauth.com it is linked to their email address.</p>
       </div>
     </div>
   </div>
@@ -270,7 +270,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="key">Name</div>
       <div class="val">First and last name, entered by you during profile setup.</div>
       <div class="key">Public key (A0)</div>
-      <div class="val">A mathematical public point derived from your NFC card. It is public by design — it cannot be used to access your account or reconstruct your secret.</div>
+      <div class="val">A mathematical public point produced by the distributed generation between your phone and your cards — not derived from any single one of them. It is public by design — it cannot be used to access your account or reconstruct your secret.</div>
       <div class="key">Session data</div>
       <div class="val">A short-lived token that keeps you logged in. It expires automatically and is never shared.</div>
     </div>
@@ -281,9 +281,16 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">Your private key or secret — it never exists as a complete value anywhere, not on your phone, not on our servers.</div>
       <div class="never-item">The contents of your NFC card.</div>
-      <div class="never-item">Individual browsing behavior, personal tracking, or advertising data of any kind.</div>
+      <div class="never-item">Individual browsing behavior outside our authentication service, personal tracking, or advertising data of any kind.</div>
       <div class="never-item">Payment information.</div>
       <div class="never-item">Personal data of end users authenticating through third-party websites that use our service.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">About linkability</div>
+    <div class="info-box">
+      Today your public key is <strong>the same on every site</strong> where you log in. Different sites — and we — can therefore recognise that it is the same person. We state this openly: it is a property of the card technology currently available, not an oversight. We are working on a mode that uses a distinct identity for each site.
     </div>
   </div>
 
@@ -330,7 +337,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       </div>
       <div class="role-card">
         <div class="role-title">QUANDO UN SITO TERZO USA IL NOSTRO SERVIZIO</div>
-        <p>Quel sito è il Titolare del trattamento dei dati dei suoi utenti. NoKeyAuth agisce come Responsabile del trattamento tecnico per loro conto. Vediamo solo dati tecnici anonimi — timestamp ed esiti delle autenticazioni. Non vediamo mai i dati personali dei loro utenti.</p>
+        <p>Quel sito è il Titolare del trattamento dei dati dei suoi utenti. NoKeyAuth agisce come Responsabile del trattamento tecnico per loro conto. Riceviamo la chiave pubblica, l'identificativo della sessione e il momento dell'autenticazione. Non riceviamo mai il nome, l'indirizzo email né alcun altro dato che quel sito conservi sui propri utenti. Da notare: una chiave pubblica non è un dato anonimo — è un identificatore stabile, e per chi ha anche un account su nokeyauth.com è collegato al suo indirizzo email.</p>
       </div>
     </div>
   </div>
@@ -343,7 +350,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="key">Nome</div>
       <div class="val">Nome e cognome, inseriti da te durante la configurazione del profilo.</div>
       <div class="key">Chiave pubblica (A0)</div>
-      <div class="val">Un punto matematico pubblico derivato dalla tua card NFC. È pubblico per design — non può essere usato per accedere al tuo account o ricostruire il tuo segreto.</div>
+      <div class="val">Un punto matematico pubblico nato dalla generazione distribuita fra il tuo telefono e le tue card — non derivato da una sola di esse. È pubblico per design — non può essere usato per accedere al tuo account o ricostruire il tuo segreto.</div>
       <div class="key">Dati di sessione</div>
       <div class="val">Un token di breve durata che mantiene la tua sessione attiva. Scade automaticamente e non viene mai condiviso.</div>
     </div>
@@ -354,9 +361,16 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">La tua chiave privata o segreto — non esiste mai come valore completo in nessun posto, né sul tuo telefono né sui nostri server.</div>
       <div class="never-item">Il contenuto della tua card NFC.</div>
-      <div class="never-item">Comportamento di navigazione individuale, tracciamento personale o dati pubblicitari di alcun tipo.</div>
+      <div class="never-item">Comportamento di navigazione individuale al di fuori del nostro servizio di autenticazione, tracciamento personale o dati pubblicitari di alcun tipo.</div>
       <div class="never-item">Dati di pagamento.</div>
       <div class="never-item">Dati personali degli utenti finali che si autenticano tramite siti terzi che usano il nostro servizio.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Sulla collegabilità</div>
+    <div class="info-box">
+      Oggi la tua chiave pubblica è <strong>la stessa su tutti i siti</strong> in cui accedi. Siti diversi — e noi — possono quindi riconoscere che si tratta della stessa persona. Lo diciamo apertamente: è una proprietà della tecnologia di card oggi disponibile, non una dimenticanza. Stiamo lavorando a una modalità con un'identità distinta per ogni sito.
     </div>
   </div>
 
@@ -403,7 +417,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       </div>
       <div class="role-card">
         <div class="role-title">CUANDO UN SITIO TERCERO USA NUESTRO SERVICIO</div>
-        <p>Ese sitio es el Responsable del tratamiento de los datos de sus usuarios. NoKeyAuth actúa como Encargado del tratamiento técnico en su nombre. Solo vemos datos técnicos anónimos — marcas de tiempo y resultados de autenticaciones. Nunca vemos los datos personales de sus usuarios.</p>
+        <p>Ese sitio es el Responsable del tratamiento de los datos de sus usuarios. NoKeyAuth actúa como Encargado del tratamiento técnico en su nombre. Recibimos la clave pública, el identificador de sesión y el momento de la autenticación. Nunca recibimos el nombre, la dirección de email ni ningún otro dato que ese sitio conserve sobre sus usuarios. Conviene precisarlo: una clave pública no es un dato anónimo — es un identificador estable, y para quien tiene también una cuenta en nokeyauth.com está vinculado a su dirección de email.</p>
       </div>
     </div>
   </div>
@@ -416,7 +430,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
       <div class="key">Nombre</div>
       <div class="val">Nombre y apellido, introducidos por ti durante la configuración del perfil.</div>
       <div class="key">Clave pública (A0)</div>
-      <div class="val">Un punto matemático público derivado de tu tarjeta NFC. Es público por diseño — no puede usarse para acceder a tu cuenta ni reconstruir tu secreto.</div>
+      <div class="val">Un punto matemático público nacido de la generación distribuida entre tu teléfono y tus tarjetas — no derivado de una sola de ellas. Es público por diseño — no puede usarse para acceder a tu cuenta ni reconstruir tu secreto.</div>
       <div class="key">Datos de sesión</div>
       <div class="val">Un token de corta duración que mantiene tu sesión activa. Expira automáticamente y nunca se comparte.</div>
     </div>
@@ -427,9 +441,16 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
     <div class="never-box">
       <div class="never-item">Tu clave privada o secreto — nunca existe como valor completo en ningún lugar, ni en tu teléfono ni en nuestros servidores.</div>
       <div class="never-item">El contenido de tu tarjeta NFC.</div>
-      <div class="never-item">Comportamiento de navegación individual, seguimiento personal o datos publicitarios de ningún tipo.</div>
+      <div class="never-item">Comportamiento de navegación individual fuera de nuestro servicio de autenticación, seguimiento personal o datos publicitarios de ningún tipo.</div>
       <div class="never-item">Información de pago.</div>
       <div class="never-item">Datos personales de usuarios finales que se autentican a través de sitios terceros que usan nuestro servicio.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Sobre la vinculabilidad</div>
+    <div class="info-box">
+      Hoy tu clave pública es <strong>la misma en todos los sitios</strong> en los que inicias sesión. Distintos sitios — y nosotros — pueden por tanto reconocer que se trata de la misma persona. Lo decimos abiertamente: es una propiedad de la tecnología de tarjeta hoy disponible, no un descuido. Estamos trabajando en una modalidad con una identidad distinta para cada sitio.
     </div>
   </div>
 
@@ -459,7 +480,7 @@ p { color: var(--text); margin-bottom: 14px; font-size: 14px; line-height: 1.85;
 </div>
 
 <div class="footer">
-  NoKeyAuth · Privacy Policy · April 26, 2026<br>
+  NoKeyAuth · Privacy Policy · September 12, 2026<br>
   Patent Pending
 </div>
 
